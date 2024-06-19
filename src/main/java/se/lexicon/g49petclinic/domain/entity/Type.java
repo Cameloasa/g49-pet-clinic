@@ -23,4 +23,18 @@ public class Type {
 
     @OneToMany(mappedBy = "type", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Pet> pets = new ArrayList<>();
+
+    public Type(String name) {
+        this.name = name;
+    }
+
+    public void addPet(Pet pet) {
+        pets.add(pet);
+        pet.setType(this);
+    }
+
+    public void removePet(Pet pet) {
+        pets.remove(pet);
+        pet.setType(null);
+    }
 }

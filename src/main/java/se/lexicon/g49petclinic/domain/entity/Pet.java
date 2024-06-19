@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -44,6 +45,20 @@ public class Pet {
     )
     private List<Visit> visits;
 
+    public Pet(String name, LocalDate birthDate, Type type, Owner owner) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.type = type;
+        this.owner = owner;
+    }
 
+    public void addVisit(Visit visit) {
+       visits.add(visit);
+       visit.getPets().add(this);
+    }
+    public void removeVisit(Visit visit) {
+        visits.remove(visit);
+        visit.getPets().remove(this);
 
+    }
 }

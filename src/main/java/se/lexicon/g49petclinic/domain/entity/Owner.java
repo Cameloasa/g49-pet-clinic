@@ -42,4 +42,14 @@ public class Owner {
         this.phone = phone;
         this.address = address;
     }
+
+    public void addPet(Pet pet) {
+        pets.add(pet);
+        pet.setOwner(this);
+    }
+
+    public void removePet(Pet pet) {
+        pets.remove(pet);
+        pet.setOwner(null);
+    }
 }

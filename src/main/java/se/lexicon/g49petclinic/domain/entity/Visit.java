@@ -36,6 +36,16 @@ public class Visit {
         this.visitDate = LocalDate.now();
     }
 
+    public void addPet(Pet pet) {
+        pets.add(pet);
+        pet.getVisits().add(this);
+    }
 
-    
+    public void removePet(Pet pet) {
+        pets.remove(pet);
+        pet.getVisits().remove(this);
+
+    }
+
+
 }
