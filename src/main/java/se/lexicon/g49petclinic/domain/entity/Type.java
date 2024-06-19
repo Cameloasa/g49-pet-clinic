@@ -19,12 +19,17 @@ public class Type {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private Long id;
-    private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private PetTypeEnum name;
 
     @OneToMany(mappedBy = "type", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Pet> pets = new ArrayList<>();
 
-    public Type(String name) {
+
+
+    public Type(PetTypeEnum  name) {
         this.name = name;
     }
 
