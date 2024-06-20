@@ -20,16 +20,16 @@ public class Type {
     @Column(updatable = false)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
+
     @Column(nullable = false)
-    private PetTypeEnum name;
+    private String name;
 
     @OneToMany(mappedBy = "type", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Pet> pets = new ArrayList<>();
 
 
 
-    public Type(PetTypeEnum  name) {
+    public Type(String  name) {
         this.name = name;
     }
 
